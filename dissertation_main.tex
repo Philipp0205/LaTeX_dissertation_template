@@ -32,24 +32,28 @@
 
 \usepackage{blindtext} %% for some dummy text, remove in your writeup
 \usepackage{coffee4}    %% for some fun
+\usepackage{amsmath} %% line breaks equation
+\usepackage{float}
 
 %% ***************** (Your) Packages (End) *******************
 
 
 %% **************** (Your) Data (Start) ******************
 
-\title{Machine Learning\\Approaches to the\\Blockchain}  % use \\ here otherwise you get a justified title
+\title{Machine Learning for the Prediction of Brake Bending Parameters}  % use \\ here otherwise you get a justified title
                                      % note capitalization of the title (only common 
                                      % words in lower case)
 \tagline{some hyped-up tagline}      % tag line
-\author{Jean-Paul Ebejer}            % your full name
-\authorID{123456M}                   % your University Identifier
-\supervisor{Dr Zhivago}              % your supervisor(s) name - no . in Dr
-\cosupervisor{Dr Who}                % your cosupervisor(s) name - no . in Dr *OPTIONAL* 
+\author{Philipp Kurrle}            % your full name
+\authorID{123456}                   % your University Identifier
+\supervisor{Prof. Dr. Ulrike Pado}              % your supervisor(s) name - no . in Dr
+\cosupervisor{Peter Lange}                % your cosupervisor(s) name - no . in Dr *OPTIONAL* 
+\university{Hochschule für Technik}
+
                                      % simply comment out the above line if absent
-\department{Department of Alchemy}   % your department (e.g. Artificial Intelligence)
-\faculty{Faculty of Something}       % your faculty (e.g. ICT)
-\degreeName{M.Sc.\ in Your Degree}       % the degree you are reading
+\department{Computer Science}   % your department (e.g. Artificial Intelligence)
+\faculty{Software Technology Master}       % your faculty (e.g. ICT)
+\degreeName{M.Sc.\ in Software Technology}       % the degree you are reading
                                      % note the \ after the dot, so not to consider it a fullstop
 \doctype{dissertation}               % the type of document (fyp, dissertation, thesis)
 \degreeDate{\monthyeardate\today}    % when did you submit (officially after your corrections)
@@ -67,7 +71,7 @@
 
 % You should have an images directory in every chapX subdir
 % NOTE:  Trailing / for subdirs is required.
-\graphicspath{{./images/}{./chap1/images/}{./chap2/images/}}   % Paths where to look for images, if defined "images" must always be there as it holds the images in-use by the template.
+\graphicspath{{./images/}{./chap1/images/}{./chap2/images/}{./chap3/images/}}   % Paths where to look for images, if defined "images" must always be there as it holds the images in-use by the template.
 
 \makeindex
 
@@ -86,10 +90,10 @@
 \begin{document}
 \frontmatter 
     \maketitle
-    \input{frontmatter/copyright}       
+    %\input{frontmatter/copyright}       
     %% The originality statement is *NOT* part of the dissertation but submitted separately.
-    \input{frontmatter/dedication}        % include a dedication.tex file
-    \input{frontmatter/acknowledgements}   % include an acknowledgements.tex file
+    %\input{frontmatter/dedication}        % include a dedication.tex file
+    %\input{frontmatter/acknowledgements}   % include an acknowledgements.tex file
     \input{frontmatter/abstract}\if@openright\cleardoublepage\else\clearpage\fi
     \tableofcontents*\if@openright\cleardoublepage\else\clearpage\fi
     \listoffigures*\if@openright\cleardoublepage\else\clearpage\fi
@@ -102,8 +106,10 @@
 \mainmatter 
 %%	\part{Your First Part} %% PhDs may require this parts idea as well.
     \input{chap1/introduction_main} 
-    \input{chap2/background_and_lit_overview_main}
-    \input{chap3/materials_and_methods_main}
+    %\input{chap2/background_and_lit_overview_main}
+    \input{chap2/theoretical_foundations_main}
+    %input{chap3/materials_and_methods_main}
+    \input{chap3/research_methodology_main}
     \input{chap4/results_and_discussion_main}
 %%	\part{Your Second Part}
     \input{chap5/evaluation_main}
@@ -120,7 +126,12 @@
 
     \bibliographystyle{um-plainnat} %% specific plainnat does not show url for articles
     % Use something like https://flamingtempura.github.io/bibtex-tidy/ to clean all your bibtex entries
-    { 	\scriptsize\bibliography{chap1/introduction_biblio,chap2/background_and_lit_overview_biblio}}
+    { 	\scriptsize\bibliography{
+    chap1/introduction_biblio,
+    chap2/background_and_lit_overview_biblio,
+    chap2/theoretical_foundations_biblio,
+    chap3/research_methodology_biblio 
+    }}
 	\printindex
 }
 
